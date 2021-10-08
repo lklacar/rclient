@@ -18,7 +18,7 @@ const lifetime = 180000
 const dataMimeType = APPLICATION_JSON.string
 const metadataMimeType = MESSAGE_RSOCKET_COMPOSITE_METADATA.string
 
-export function connectClient(url: string): Promise<RClient> {
+export function connect(url: string): Promise<RClient> {
   return new Promise<RClient>((resolve, reject) => {
     const client = new RSocketClient({
       setup: {

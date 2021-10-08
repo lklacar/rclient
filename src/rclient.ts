@@ -56,7 +56,7 @@ export class RClient {
   }
 
   public fireAndForget(path: string, token: string, data: string): Observable<void> {
-    return new Observable<void>(subscriber => {
+    return new Observable<void>((subscriber: any) => {
       this.socket.fireAndForget({
         data: Buffer.from(JSON.stringify(data)),
         metadata: encodeCompositeMetadata([
@@ -69,7 +69,7 @@ export class RClient {
   }
 
   public requestResponse(path: string, token: string, data: string): Observable<any> {
-    return new Observable<void>(subscriber => {
+    return new Observable<void>((subscriber: any) => {
       this.socket
         .requestResponse({
           data: Buffer.from(JSON.stringify(data)),
@@ -92,7 +92,7 @@ export class RClient {
   }
 
   public requestStream(path: string, token: string, data: string): Observable<any> {
-    return new Observable<void>(subscriber => {
+    return new Observable<void>((subscriber: any) => {
       this.socket
         .requestStream({
           data: Buffer.from(JSON.stringify(data)),

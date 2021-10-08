@@ -122,7 +122,12 @@
   "release": {
     "branches": [
       "master"
-    ]
+    ],
+    "analyzeCommits": {
+      "releaseRules": [
+        {"type": "docs", "scope": "*", "release": "patch"}
+      ]
+    }
   },
   "dependencies": {
     "rsocket-core": "0.0.27",

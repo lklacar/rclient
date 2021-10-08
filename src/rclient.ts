@@ -10,7 +10,7 @@ import {
   RSocketClient
 } from 'rsocket-core'
 import RSocketWebSocketClient from 'rsocket-websocket-client'
-import { Observable } from 'rxjs'
+import { Observable, Subscriber } from 'rxjs'
 
 const maxRSocketRequestN = 2147483647
 const keepAlive = 60000
@@ -56,7 +56,7 @@ export class RClient {
   }
 
   public fireAndForget(path: string, token: string, data: string): Observable<void> {
-    return new Observable<void>((subscriber: any) => {
+    return new Observable<void>((subscriber: Subscriber<any>) => {
       this.socket.fireAndForget({
         data: Buffer.from(JSON.stringify(data)),
         metadata: encodeCompositeMetadata([
@@ -69,7 +69,7 @@ export class RClient {
   }
 
   public requestResponse(path: string, token: string, data: string): Observable<any> {
-    return new Observable<void>((subscriber: any) => {
+    return new Observable<void>((subscriber: Subscriber<any>) => {
       this.socket
         .requestResponse({
           data: Buffer.from(JSON.stringify(data)),
@@ -92,7 +92,7 @@ export class RClient {
   }
 
   public requestStream(path: string, token: string, data: string): Observable<any> {
-    return new Observable<void>((subscriber: any) => {
+    return new Observable<void>((subscriber: Subscriber<any>) => {
       this.socket
         .requestStream({
           data: Buffer.from(JSON.stringify(data)),

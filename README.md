@@ -4,7 +4,7 @@
 
 RClient is a simplified way to use RSocket in the browser. It is setup to support routing, bearer
 authentication and json serialization out of the box. It utilises rxjs library to provide a
-convenient way to deal with stremas.
+convenient way to deal with streams.
 
 ## Installation
 
